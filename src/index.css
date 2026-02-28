@@ -1,0 +1,91 @@
+/* ===== APP STYLES FOR SMOOTH SCROLLING ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Accounts for fixed navbar */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.App {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* Section Styles */
+
+.section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    scroll-margin-top: 80px;
+    /* Ensures section starts below navbar */
+}
+
+
+/* Optional: Add subtle separators between sections */
+
+.section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3), transparent);
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+    .section {
+        scroll-margin-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+    .section {
+        scroll-margin-top: 60px;
+    }
+}
+
+
+/* Loading animation for sections */
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: sectionFadeIn 0.8s ease forwards;
+}

@@ -1,0 +1,410 @@
+/* ===== TECHNOLOGIES PAGE STYLES ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+.tech-container {
+    min-height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    padding: 2rem 5%;
+}
+
+
+/* ===== BACKGROUND ===== */
+
+.tech-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.tech-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.08;
+    animation: floatSphere 20s infinite ease-in-out;
+}
+
+.sphere-1 {
+    width: 400px;
+    height: 400px;
+    background: #3b82f6;
+    top: -100px;
+    right: -100px;
+}
+
+.sphere-2 {
+    width: 350px;
+    height: 350px;
+    background: #8b5cf6;
+    bottom: -100px;
+    left: -100px;
+}
+
+@keyframes floatSphere {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(3%, 3%) scale(1.05);
+    }
+    50% {
+        transform: translate(-2%, 1%) scale(0.95);
+    }
+    75% {
+        transform: translate(1%, -2%) scale(1.02);
+    }
+}
+
+
+/* ===== CONTENT ===== */
+
+.tech-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ===== HEADER ===== */
+
+.tech-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 30px;
+    color: #3b82f6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.tech-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tech-subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* ===== CATEGORY FILTER ===== */
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
+}
+
+.category-btn:hover {
+    border-color: #3b82f6;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.cat-icon {
+    font-size: 1.2rem;
+}
+
+
+/* ===== TECH GRID ===== */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.tech-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    position: relative;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tech-card-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ===== GLOW EFFECT ON HOVER ===== */
+
+.tech-glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 0 30px 5px rgba(59, 130, 246, 0.5);
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+}
+
+.tech-card:hover .tech-glow-effect {
+    opacity: 1;
+}
+
+
+/* Optional: Mouse follow glow (more advanced) */
+
+.tech-card {
+    --x: 50%;
+    --y: 50%;
+}
+
+.tech-card:hover .tech-glow-effect {
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.2) 30%, transparent 70%);
+}
+
+
+/* Shine effect */
+
+.tech-card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.tech-card:hover .tech-card-content::before {
+    left: 100%;
+}
+
+
+/* Border glow on hover */
+
+.tech-card:hover .tech-card-content {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+}
+
+.tech-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+}
+
+.tech-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-name {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tech-category-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.8rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 20px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-category-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+
+/* ===== STATS ===== */
+
+.tech-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 100px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .tech-container {
+        padding: 1.5rem 4%;
+    }
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+    .tech-icon {
+        font-size: 2.5rem;
+    }
+    .tech-name {
+        font-size: 1rem;
+    }
+    .tech-stats {
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    .tech-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    .tech-card-content {
+        padding: 1.5rem 0.8rem;
+    }
+    .tech-icon {
+        font-size: 2.2rem;
+    }
+}
