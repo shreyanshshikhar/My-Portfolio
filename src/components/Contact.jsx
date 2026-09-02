@@ -217,10 +217,7 @@ const Contact = () => {
               </form>
             )}
 
-            {/* Formspree Note */}
-            <p className="formspree-note">
-              Messages are sent securely via Formspree
-            </p>
+            
           </div>
         </div>
       </div>
