@@ -29,7 +29,7 @@ const Certifications = () => {
       issuer: 'HackerRank',
       category: 'backend',
       icon: '🟢',
-      image: '/src/assets/nodecertificate.png',
+      image: './src/assets/nodecertificate.png',
       link: 'https://www.hackerrank.com/certificates/00f21150a082',
       date: '2024',
       skills: ['Node.js', 'Express', 'JavaScript']
